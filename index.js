@@ -6,7 +6,9 @@ const {
   getProductTitlesByRating,
   getTotalReviewsOnStore,
   titlesAsParagraph,
-  findProductByID
+  findProductByID,
+  checkAllRatings,
+  checkSomeRatings
 } = require('./example-scenarios')
 
 const optionSelect = async (products) => {
@@ -17,6 +19,8 @@ const optionSelect = async (products) => {
     ['4. Create array of all words from each product title', titlesAsParagraph, [products]],
     ['5. Check if product of id 11 exists (Should Pass)', findProductByID, [products, 5]],
     ['6. Check if product of id 99 exists (Should Fail)', findProductByID, [products, 99]],
+    ['7. Determine is all ratings are over 3', checkAllRatings, [products, 3]],
+    ['8. Determine if at least 1 product rating is over 3', checkSomeRatings, [products, 3]],
     ['Cancel', terminate, [0]]
   ]
 

@@ -106,6 +106,50 @@ exports.addSomeNewProducts = async () => {
   return null
 }
 
+exports.checkAllRatings = (products, rating) => {
+  const isAboveRating = products.every(product => product.rating.rate >= rating)
+
+  const result = isAboveRating
+    ? `All products are rated above ${rating}!!`
+    : `Oh no! There's ${products.filter((product) => product.rating.rate < rating).length} products rated below ${rating}`
+
+  displayOutput(`
+    Steps:
+    1. Use the every method to check if all product ratings are >= ${rating}
+    2. If true, display success message. If false, display number of products under
+
+    *Note: You could skip the every method and just use a single filter but I wanted to demo every()
+  `, `
+    const isAboveRating = products.every(product => product.rating.rate >= rating)
+
+    const result = isAboveRating
+      ? \`All products are rated above \${rating}!!\`
+      : \`Oh no! There's \${products.filter((product) => product.rating.rate < rating).length} products rated below \${rating}\`
+  `, result)
+  return result
+}
+
+exports.checkSomeRatings = (products, rating) => {
+  const isAboveRating = products.some(product => product.rating.rate >= rating)
+
+  const result = isAboveRating
+    ? `At least one product is over ${rating}!`
+    : `Oh no! There's no products rated above ${rating}`
+
+  displayOutput(`
+    Steps:
+    1. Use the some() method to check if any
+    2. If true, display success message. If false, display error message
+
+    *Note: You could use find to get the number of ratings but I wanted to demo some()'
+  `, `
+    const result = isAboveRating
+    ? \`At least one product is over \${rating}!\`
+    : \`Oh no! There's no products rated above \${rating}\`
+  `, result)
+  return result
+}
+
 /* ----------------------------------
   Displays Steps + Code + Result
 ---------------------------------- */
