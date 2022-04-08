@@ -74,7 +74,7 @@ exports.addSomeNewProducts = async () => {
   displayOutput(`
     Steps:
     1. Create an array of 10 product objects
-    2. Within an await Promise.all() map the newProducts. The map will be async
+    2. Within an await Promise.allSettled() map the newProducts. The map will be async
     3. Not neccessary but return and log the response info
 
     *Note: All IDs will be 21 as the api doesn't actually save any data
@@ -83,7 +83,7 @@ exports.addSomeNewProducts = async () => {
       return {title: \`New Product \${index}\`, price: Math.floor((Math.random() * 100) + 1)}
     })
 
-    await Promise.all(newProducts.map(async (newProduct) => {
+    await Promise.allSettled(newProducts.map(async (newProduct) => {
       const res = await axios.post('https://fakestoreapi.com/products', newProduct)
       term.green('Success, the follow product has been added!\\n')
       term.yellow(\`\${JSON.stringify(res.data)}\\n\`)
@@ -97,7 +97,7 @@ exports.addSomeNewProducts = async () => {
     }
   })
 
-  await Promise.all(newProducts.map(async (newProduct) => {
+  await Promise.allSettled(newProducts.map(async (newProduct) => {
     const res = await axios.post('https://fakestoreapi.com/products', newProduct)
     term.green('Success, the follow product has been added!\n')
     term.yellow(`${JSON.stringify(res.data)}\n`)
