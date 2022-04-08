@@ -1,0 +1,29 @@
+{
+  "name": "npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "demo": "babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matthew-fournier/iterations-demo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matthew-fournier/iterations-demo/issues"
+  },
+  "homepage": "https://github.com/matthew-fournier/iterations-demo#readme",
+  "dependencies": {
+    "@shopify/shopify-api": "^3.0.0",
+    "axios": "^0.26.1",
+    "babel-node": "^0.0.1-security",
+    "terminal-kit": "^2.4.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@babel/node": "^7.16.8"
+  }
+}
